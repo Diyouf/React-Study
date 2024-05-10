@@ -1,35 +1,32 @@
-import { Component } from 'react'
-import './App.css';
-import Navbar from './component/Navbar';
+import "./App.css";
+import Navbar from "./component/Navbar";
+import { useState } from "react";
 
-export default class App extends Component {
-  state = {
-    name: "diyouf",
-    place: "tirur",
-    count: 0
+export default function App() {
+  const [Count, setCount] = useState(0);
+  const [name, setName] = useState("Diyouf");
+
+  function increamentCount() {
+    setCount(Count + 1);
   }
 
-  handleStateData = () => {
-    this.setState({
-      name: "john",
-    })
+  function decreamentCount() {
+    if (Count <= 0) return alert("Invalid");
+
+    setCount(Count - 1);
   }
 
-  increase = () => {
-    this.setState(last => ({
-      count: last.count + 1
-    }))
+  function changeName() {
+    setName("john");
   }
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Hello there</h1>
-        <button onClick={this.handleStateData}>Change Name</button>
-        <Navbar name={this.state.name} />
-        <button onClick={this.increase}>Increase</button>
-        <p>{this.state.count}</p>
-      </div>
-    )
-  }
+  return (
+    <div className="App">
+      <Navbar name={name} />
+      <p>{Count}</p>
+      <p>{name}</p>
+      <button onClick={changeName}>change Name</button>
+      <button onClick={increamentCount}>Increment</button>
+      <button onClick={decreamentCount}>Increment</button>
+    </div>
+  );
 }
