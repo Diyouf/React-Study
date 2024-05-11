@@ -1,12 +1,14 @@
 import "./App.css";
 import Navbar from "./component/Navbar";
 import { useState, useEffect } from "react";
+import Modal from "./component/Modal";
 
 export default function App() {
   const [Count, setCount] = useState(0);
   const [name, setName] = useState("Diyouf");
   const [ChildData, setChildData] = useState("2");
   const [sum, setsum] = useState(0);
+  const [modalAction, setmodalAction] = useState(false);
 
   useEffect(() => {
     const sum = 10 + Number(ChildData);
@@ -32,6 +34,14 @@ export default function App() {
     setChildData(message);
   };
 
+  const openModal = () =>{
+    setmodalAction(true)
+  }
+  const handleCloseAction = (action) => {
+    setmodalAction(action)
+  }
+
+
   return (
     <div className="App">
       <Navbar name={name} sendMessageToParent={handleMessageFromChild} />
@@ -42,6 +52,9 @@ export default function App() {
       <button onClick={changeName}>change Name</button>
       <button onClick={increamentCount}>Increment</button>
       <button onClick={decreamentCount}>Increment</button>
+      <button onClick={openModal}>Show Modal</button>
+      {modalAction && <Modal onClose = {handleCloseAction}/>}
+      
     </div>
   );
 }
