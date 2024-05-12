@@ -13,8 +13,14 @@ export default function App() {
   useEffect(() => {
     const sum = 10 + Number(ChildData);
     setsum(sum);
+    console.log(sum);
     return () => {};
   }, [ChildData]);
+
+  useEffect(() => {
+    console.log("its worrking");
+    return () => {};
+  }, []);
 
   function increamentCount() {
     setCount(Count + 1);
@@ -34,13 +40,12 @@ export default function App() {
     setChildData(message);
   };
 
-  const openModal = () =>{
-    setmodalAction(true)
-  }
+  const openModal = () => {
+    setmodalAction(true);
+  };
   const handleCloseAction = (action) => {
-    setmodalAction(action)
-  }
-
+    setmodalAction(action);
+  };
 
   return (
     <div className="App">
@@ -51,10 +56,9 @@ export default function App() {
       <p>From Child : {ChildData}</p>
       <button onClick={changeName}>change Name</button>
       <button onClick={increamentCount}>Increment</button>
-      <button onClick={decreamentCount}>Increment</button>
+      <button onClick={decreamentCount}>Decrement</button>
       <button onClick={openModal}>Show Modal</button>
-      {modalAction && <Modal onClose = {handleCloseAction}/>}
-      
+      {modalAction && <Modal onClose={handleCloseAction} />}
     </div>
   );
 }
