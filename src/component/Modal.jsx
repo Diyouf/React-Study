@@ -1,3 +1,5 @@
+import ListingComponenent from "./listing";
+
 const Modal = (props) => {
   const handleClosebutton = () => {
     props.onClose(false);
@@ -7,29 +9,58 @@ const Modal = (props) => {
   };
   return (
     <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "20px",
+      height: "100vh", // Added to cover the entire viewport height
+    }}
+  >
+    <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        width: "500px",
+        height: "200px",
+        padding: "20px",
       }}
     >
-      <div
+      <p style={{ textAlign: "center", fontSize: "20px", marginBottom: "20px" }}>
+        Modal Component
+      </p>
+      <button
+        onClick={handleClosebutton}
         style={{
-          background: "yellow",
-          width: "200px",
-          height: "200px",
-          display: "inline-block",
-          justifyContent: "center",
+          padding: "10px 20px",
+          background: "#e74c3c",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+          marginRight: "10px",
         }}
       >
-          <p>Modal Component</p>
-          <button onClick={handleClosebutton}>close</button>
-        <div>
-         
-        <button onClick={handleOkAction}>Ok</button>
-        </div>
-      </div>
+        Close
+      </button>
+      {/* Placing ListingComponent here */}
+      <ListingComponenent />
+      <button
+        onClick={handleOkAction}
+        style={{
+          padding: "10px 20px",
+          background: "#2ecc71",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+          marginTop: "20px",
+        }}
+      >
+        Ok
+      </button>
     </div>
+  </div>
+  
+  
   );
 };
 
