@@ -17,10 +17,6 @@ export default function App() {
     return () => {};
   }, [ChildData]);
 
-  useEffect(() => {
-    console.log("its worrking");
-    return () => {};
-  }, []);
 
   function increamentCount() {
     setCount(Count + 1);
@@ -41,7 +37,7 @@ export default function App() {
   };
 
   const openModal = () => {
-    setmodalAction(true);
+    setmodalAction(!modalAction);
   };
   const handleCloseAction = (action) => {
     setmodalAction(action);

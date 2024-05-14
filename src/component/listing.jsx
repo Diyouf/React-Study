@@ -9,8 +9,7 @@ const ListingComponenent = () => {
               key={item.id}
               style={{
                 width: "500px",
-                height: "", // Height can be specified as needed
-                backgroundColor: "#FF3B8", // Corrected color value
+                backgroundColor: "#FCFADF", // Corrected color value
                 padding: "20px", // Added padding for better appearance
                 margin: "10px auto", // Center the div horizontally with margin
                 borderRadius: "5px", // Rounded corners for the div
