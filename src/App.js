@@ -2,7 +2,6 @@ import "./App.css";
 import Navbar from "./component/Navbar";
 import { useState, useEffect } from "react";
 import Modal from "./component/Modal";
-import FormComponent from "./component/form";
 
 export default function App() {
   const [Count, setCount] = useState(0);
@@ -17,7 +16,6 @@ export default function App() {
     console.log(sum);
     return () => {};
   }, [ChildData]);
-
 
   function increamentCount() {
     setCount(Count + 1);
@@ -56,7 +54,7 @@ export default function App() {
       <button onClick={decreamentCount}>Decrement</button>
       <button onClick={openModal}>Show Modal</button>
       {modalAction && <Modal onClose={handleCloseAction} />}
-      <FormComponent />
+      {/* <FormComponent /> */}
     </div>
   );
 }
